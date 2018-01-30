@@ -7,6 +7,7 @@ import VideoList from './components/video_list';
 
 
 
+
 //create new compnents
 //this compoent should create some HTML
 
@@ -20,7 +21,7 @@ import VideoList from './components/video_list';
       super(props);
       this.state = {  videos: []};
 
-      YTSearch({key: API_KEY, term: 'surfboards'}, videos => {
+      YTSearch({key: API_KEY, term: 'food'}, videos => {
         this.setState({ videos });
         // this.setState({videos: videos})
       });

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 // const SearchBar = () => {
 //     return <input/ >
@@ -9,20 +9,19 @@ import React from 'react'
 class SearchBar extends React.Component{
   constructor(props){
     super(props);
-    
-    this.state = {term: ''}; //ONLY IN CONSTRUCTOR U CAN MKAE STATE LIKE DES 
+
+    this.state = {term: ''}; //ONLY IN CONSTRUCTOR U CAN MKAE STATE LIKE DES
   }
-    
+
     render(){
       return(
         <div>
-          value={this.state.term}
           <input onChange={event => this.setState({term: event.target.value})} />
         </div>
       );
     }
-    
-    
+
+
     // onInputChange(event) {
     //   console.log(event.target.value);
     //   // console.log(this.state);
