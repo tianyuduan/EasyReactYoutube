@@ -5,6 +5,7 @@ import YTSearch from 'youtube-api-search';
 import SearchBar from './components/searchbar';
 import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
+import _ from 'lodash';
 
 
 //create new compnents
@@ -24,7 +25,7 @@ import VideoDetail from './components/video_detail';
         selectedVideo: null
       };
 
-      YTSearch({key: API_KEY, term: 'beyonce'}, (videos) => {
+      YTSearch({key: API_KEY, term: 'food'}, (videos) => {
         this.setState({
           videos: videos,
           selectedVideo: videos[0],

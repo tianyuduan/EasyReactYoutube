@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 // const SearchBar = () => {
 //     return <input/ >
@@ -6,7 +6,8 @@ import React from 'react';
 //adds class base method, more functionality, HAVE state
 //functional components DO NOT have state
 
-class SearchBar extends React.Component{
+class SearchBar extends Component{
+
   constructor(props){
     super(props);
 
@@ -15,17 +16,21 @@ class SearchBar extends React.Component{
 
     render(){
       return(
-        <div>
-          <input onChange={event => this.setState({term: event.target.value})} />
+        <div className='search-bar'>
+          <input
+          value={this.state.term}
+          onChange={event => this.onInputChange(event.target.value)} />
         </div>
       );
     }
 
 
-    // onInputChange(event) {
-    //   console.log(event.target.value);
-    //   // console.log(this.state);
-    // }
+    onInputChange(term) {
+      // console.log(event.target.value);
+      // console.log(this.state);
+      this.setState({term});
+      this.props.onSearchTermChange(term);
+    }
 }
 
 export default SearchBar;
