@@ -25,17 +25,26 @@ import _ from 'lodash';
         selectedVideo: null
       };
 
-      YTSearch({key: API_KEY, term: 'food'}, (videos) => {
+      this.videoSearch('food');
+    }
+
+    videoSearch(term) {
+      YTSearch({key: API_KEY, term: term}, (videos) => {
         this.setState({
           videos: videos,
           selectedVideo: videos[0],
         });
       });
     }
+
     render() {
+
+      // const videoSearch = _.debounce((term => {this.videoSearch(term) }, 300);
+
+      const videoSearch = _.debounce((term) => {this.videoSearch(term);}, 300);
       return (
         <div>
-        <SearchBar />
+        <SearchBar onSearchTermChange={videoSearch} />
         <VideoDetail video={this.state.selectedVideo}/>
         <VideoList
         onVideoSelect={selectedVideo => this.setState({selectedVideo})}
